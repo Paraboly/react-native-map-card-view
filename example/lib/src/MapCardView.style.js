@@ -43,5 +43,28 @@ export default {
     width: 125,
     height: 125,
     borderRadius: 24
+  },
+  listContainer: {
+    marginTop: 12,
+    marginBottom: 12,
+    marginLeft: 20,
+    marginRight: 12
+  },
+  listContainerGlue: {
+    marginTop: 3,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "flex-start"
+  },
+  titleStyle: {
+    fontSize: 18,
+    marginLeft: 5,
+    fontWeight: "600"
+  },
+  listStyle: {
+    height: 105,
+    width: "60%",
+    borderWidth: 0,
+    borderColor: "transparent"
   }
 };

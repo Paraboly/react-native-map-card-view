@@ -46,16 +46,18 @@ const INITIAL_REGION = {
 
 const MapCardView = props => {
   const {
-    height,
     width,
+    title,
+    height,
     styles,
-    mapStyle,
     markers,
+    mapStyle,
+    titleStyle,
     borderColor,
-    borderLeftWidth,
-    backgroundColor,
     shadowStyle,
-    shadowColor
+    shadowColor,
+    backgroundColor,
+    borderLeftWidth
   } = props;
 
   renderListItem = (data, index) => {
@@ -94,35 +96,14 @@ const MapCardView = props => {
             )}
           </MapView>
         </Androw>
-        <View
-          style={{
-            marginTop: 12,
-            marginBottom: 12,
-            marginLeft: 20,
-            marginRight: 12
-          }}
-        >
-          <Text style={{ fontWeight: "600", fontSize: 18, marginLeft: 5 }}>
-            Persons
-          </Text>
-          <View
-            style={{
-              marginTop: 3,
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "flex-start"
-            }}
-          >
+        <View style={_styles.listContainer}>
+          <Text style={titleStyle || _styles.titleStyle}>{title}</Text>
+          <View style={_styles.listContainerGlue}>
             <FlatList
-              keyExtractor={(item, index) => item.name}
-              style={{
-                height: 105,
-                width: "60%",
-                borderColor: "transparent",
-                borderWidth: 0
-              }}
               data={dummyData}
+              style={_styles.listStyle}
               renderItem={renderListItem}
+              keyExtractor={(item, index) => item.name}
               {...props}
             />
           </View>
@@ -133,6 +114,7 @@ const MapCardView = props => {
 };
 
 MapCardView.propTypes = {
+  title: PropTypes.string,
   shadowColor: PropTypes.string,
   borderColor: PropTypes.string,
   borderLeftWidth: PropTypes.number,
@@ -145,6 +127,7 @@ MapCardView.defaultProps = {
   height: 150,
   shadowColor: "#ccc",
   borderLeftWidth: 5,
+  title: "Testimonial",
   borderColor: "#f54242",
   backgroundColor: "#ffff",
   width: ScreenWidth * 0.9
