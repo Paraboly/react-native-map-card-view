@@ -1,13 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Text, View, FlatList, Dimensions } from "react-native";
-import MapView, { Marker } from "react-native-maps";
 import Androw from "react-native-androw";
+import MapView, { Marker } from "react-native-maps";
 import ListItem from "./components/ListItem/ListItem";
+import _styles, { _shadowStyle, _container } from "./MapCardView.style";
 
-const { width, height } = Dimensions.get("window");
+const { width: ScreenWidth, height: ScreenHeight } = Dimensions.get("window");
 
-const ASPECT_RATIO = width / height;
+const ASPECT_RATIO = ScreenWidth / ScreenHeight;
 const LATITUDE = 37.78825;
 const LONGITUDE = -122.4324;
 const LATITUDE_DELTA = 0.0922;
@@ -44,6 +45,19 @@ const INITIAL_REGION = {
 };
 
 const MapCardView = props => {
+  const {
+    height,
+    width,
+    styles,
+    mapStyle,
+    markers,
+    borderColor,
+    borderLeftWidth,
+    backgroundColor,
+    shadowStyle,
+    shadowColor
+  } = props;
+
   renderListItem = (data, index) => {
     const { item } = data;
     return (
@@ -54,59 +68,32 @@ const MapCardView = props => {
   };
 
   return (
-    <Androw
-      style={{
-        shadowColor: "#ccc",
-        shadowOpacity: 0.7,
-        shadowRadius: 10,
-        shadowOffset: {
-          width: 0,
-          height: 0
-        },
-        alignItems: "center",
-        justifyContent: "center"
-      }}
-    >
+    <Androw style={shadowStyle || _shadowStyle(shadowColor)}>
       <View
-        style={{
-          height: 150,
-          borderRadius: 24,
-          borderLeftWidth: 5,
-          borderColor: "red",
-          width: width * 0.9,
-          flexDirection: "row",
-          backgroundColor: "#fff"
-        }}
+        style={
+          styles ||
+          _container(
+            height,
+            width,
+            borderColor,
+            borderLeftWidth,
+            backgroundColor
+          )
+        }
       >
-        <View style={{ marginLeft: 16, justifyContent: "center" }}>
-          <Androw
-            style={{
-              shadowColor: "#ccc",
-              shadowOpacity: 0.7,
-              shadowRadius: 10,
-              shadowOffset: {
-                width: 0,
-                height: 0
-              },
-              alignItems: "center",
-              justifyContent: "center"
-            }}
+        <Androw style={_styles.mapContainer}>
+          <MapView
+            liteMode
+            style={mapStyle || _styles.mapStyle}
+            initialRegion={INITIAL_REGION}
           >
-            <MapView
-              liteMode
-              style={{
-                width: 125,
-                height: 125,
-                borderRadius: 24
-              }}
-              initialRegion={INITIAL_REGION}
-            >
+            {markers || (
               <Marker
                 coordinate={{ latitude: LATITUDE, longitude: LONGITUDE }}
               />
-            </MapView>
-          </Androw>
-        </View>
+            )}
+          </MapView>
+        </Androw>
         <View
           style={{
             marginTop: 12,
@@ -115,7 +102,9 @@ const MapCardView = props => {
             marginRight: 12
           }}
         >
-          <Text style={{ fontWeight: "600", fontSize: 18 }}>Persons</Text>
+          <Text style={{ fontWeight: "600", fontSize: 18, marginLeft: 5 }}>
+            Persons
+          </Text>
           <View
             style={{
               marginTop: 3,
@@ -126,7 +115,12 @@ const MapCardView = props => {
           >
             <FlatList
               keyExtractor={(item, index) => item.name}
-              style={{ height: 105, width: "60%" }}
+              style={{
+                height: 105,
+                width: "60%",
+                borderColor: "transparent",
+                borderWidth: 0
+              }}
               data={dummyData}
               renderItem={renderListItem}
               {...props}
@@ -139,11 +133,21 @@ const MapCardView = props => {
 };
 
 MapCardView.propTypes = {
-  example: PropTypes.number
+  shadowColor: PropTypes.string,
+  borderColor: PropTypes.string,
+  borderLeftWidth: PropTypes.number,
+  backgroundColor: PropTypes.string,
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
 
 MapCardView.defaultProps = {
-  example: 5
+  height: 150,
+  shadowColor: "#ccc",
+  borderLeftWidth: 5,
+  borderColor: "#f54242",
+  backgroundColor: "#ffff",
+  width: ScreenWidth * 0.9
 };
 
 export default MapCardView;
