@@ -12,7 +12,7 @@
 
 <p align="center">
   <img alt="React Native Map Card View"
-        src="assets/Screenshots/JSLibraryBoilerplate.png" />
+        src="assets/Screenshots/example.png" />
 </p>
 
 # Installation
