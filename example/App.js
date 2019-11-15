@@ -7,7 +7,7 @@ import {
   Text,
   StatusBar
 } from "react-native";
-import MapCardView from "./lib/src/MapCardView";
+import MapCardView from "@paraboly/react-native-map-card-view";
 
 const App = () => {
   return (
