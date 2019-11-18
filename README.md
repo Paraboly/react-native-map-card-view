@@ -32,6 +32,7 @@ npm i @paraboly/react-native-map-card-view
 "react-native": ">= 0.55.x",
 "react-native-maps": ">= 0.26.1",
 "react-native-androw": ">= 0.0.34",
+"@freakycoder/react-native-helpers": "^0.1.0"
 ```
 
 # Usage
