@@ -4,7 +4,7 @@
 
 [![Map based list card view for React Native via Paraboly.](https://img.shields.io/badge/-Map%20based%20list%20card%20view%20for%20React%20Native%20via%20Paraboly.-lightgrey?style=for-the-badge)](https://github.com/Paraboly/react-native-map-card-view)
 
-[![npm version](https://img.shields.io/npm/v/@paraboly/react-native-map-card-view.svg?style=for-the-badge)](https://www.npmjs.com/package/react-native-map-card-view)
+[![npm version](https://img.shields.io/npm/v/@paraboly/react-native-map-card-view.svg?style=for-the-badge)](https://www.npmjs.com/package/@paraboly/react-native-map-card-view)
 [![npm](https://img.shields.io/npm/dt/@paraboly/react-native-map-card-view.svg?style=for-the-badge)](https://www.npmjs.com/package/react-native-map-card-view)
 ![Platform - Android and iOS](https://img.shields.io/badge/platform-Android%20%7C%20iOS-blue.svg?style=for-the-badge)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
