@@ -66,7 +66,11 @@ To fill the list data. You **HAVE TO** use this format:
 ```
 
 ```jsx
-<MapCardView data={data} title="Testimonial" colors={["black", "red"]} />
+<MapCardView
+  data={data}
+  title="Testimonial"
+  colors={["red", "black", "gray"]}
+/>
 ```
 
 # Configuration - Props

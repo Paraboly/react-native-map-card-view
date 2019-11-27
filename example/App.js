@@ -24,7 +24,7 @@ const App = () => {
           <MapCardView
             data={dummyData}
             title="Hello"
-            colors={["black", "red"]}
+            colors={["red", "black", "gray"]}
           />
         </View>
       </SafeAreaView>
