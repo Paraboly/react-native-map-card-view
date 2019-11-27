@@ -11,11 +11,12 @@
   },
   "dependencies": {
     "@freakycoder/react-native-helpers": "^0.1.0",
-    "@paraboly/react-native-map-card-view": "0.0.4",
+    "@paraboly/react-native-map-card-view": "0.1.0",
     "react": "16.9.0",
     "react-native": "0.61.4",
     "react-native-androw": "0.0.34",
-    "react-native-maps": "^0.26.1"
+    "react-native-maps": "^0.26.1",
+    "react-native-user-avatar": "^1.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",

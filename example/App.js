@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar
-} from "react-native";
+import { View, StatusBar, SafeAreaView } from "react-native";
 import MapCardView from "@paraboly/react-native-map-card-view";
 
 const dummyData = [
@@ -28,7 +21,11 @@ const App = () => {
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <View style={{ marginTop: 32 }}>
-          <MapCardView data={dummyData} title="Hello" />
+          <MapCardView
+            data={dummyData}
+            title="Hello"
+            colors={["black", "red"]}
+          />
         </View>
       </SafeAreaView>
     </>

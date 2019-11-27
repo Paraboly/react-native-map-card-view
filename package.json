@@ -1,6 +1,6 @@
 {
   "name": "@paraboly/react-native-map-card-view",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "Map based list card view for React Native via Paraboly.",
   "keywords": [
     "FreakyCoder",
@@ -24,6 +24,7 @@
     "react-native": ">= 0.55.x",
     "react-native-maps": ">= 0.26.1",
     "react-native-androw": ">= 0.0.34",
-    "@freakycoder/react-native-helpers": "^0.1.0"
+    "react-native-user-avatar": ">= 1.0.4",
+    "@freakycoder/react-native-helpers": ">= 0.1.0"
   }
 }

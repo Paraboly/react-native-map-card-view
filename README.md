@@ -12,7 +12,9 @@
 
 <p align="center">
   <img alt="React Native Map Card View"
-        src="assets/Screenshots/example.png" />
+        src="assets/Screenshots/example.png" width="49%" />
+  <img alt="React Native Map Card View"
+        src="assets/Screenshots/example2.png" width="49%" />
 </p>
 
 # Installation
@@ -32,6 +34,7 @@ npm i @paraboly/react-native-map-card-view
 "react-native": ">= 0.55.x",
 "react-native-maps": ">= 0.26.1",
 "react-native-androw": ">= 0.0.34",
+"react-native-user-avatar": ">= 1.0.4",
 "@freakycoder/react-native-helpers": "^0.1.0"
 ```
 
@@ -47,6 +50,8 @@ import MapCardView from "@paraboly/react-native-map-card-view";
 
 To fill the list data. You **HAVE TO** use this format:
 
+**Updated:** "source" is optional now :)
+
 ```json
 [
   {
@@ -61,12 +66,10 @@ To fill the list data. You **HAVE TO** use this format:
 ```
 
 ```jsx
-<MapCardView data={data} title="Testimonial" />
+<MapCardView data={data} title="Testimonial" colors={["black", "red"]} />
 ```
 
 # Configuration - Props
-
-    borderLeftWidth
 
 | Property         |      Type      |          Default          | Description                                                                       |
 | ---------------- | :------------: | :-----------------------: | --------------------------------------------------------------------------------- |
@@ -86,6 +89,8 @@ To fill the list data. You **HAVE TO** use this format:
 | markerLat        |     number     |         37.78825          | change the default marker latitude                                                |
 | markerLng        |     number     |         -122.4324         | change the default marker longitude                                               |
 | mapInitialRegion |    lat,lng     |      INITIAL_REGION       | change the map initial region                                                     |
+| colors           |     array      |          colors           | change the background color of text avatar                                        |
+| size             |     string     |           "30"            | change the size of avatar(image)'s size                                           |
 
 ## Future Plans
 
