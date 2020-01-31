@@ -95,6 +95,7 @@ To fill the list data. You **HAVE TO** use this format:
 | mapInitialRegion |    lat,lng     |      INITIAL_REGION       | change the map initial region                                                     |
 | colors           |     array      |          colors           | change the background color of text avatar                                        |
 | size             |     string     |           "30"            | change the size of avatar(image)'s size                                           |
+| listHeight       | number, string |            85             | change list height dynamically                                                    |
 
 ## Future Plans
 
