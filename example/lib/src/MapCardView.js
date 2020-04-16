@@ -46,17 +46,11 @@ const MapCardView = (props) => {
     shadowColor,
     borderLeftWidth,
     backgroundColor,
-    firstButtonText,
-    secondButtonText,
     buttonContainerStyles,
-    secondButtonStyles,
-    firstButtonStyles,
     buttonsTextStyles,
-    firstButtonOnPress,
-    secondButtonOnPress,
-    ImageComponent,
-    firstImageSource,
-    secondImageSource,
+    buttonData,
+    onPressButton,
+    buttonStyles,
   } = props;
 
   renderListItem = (list, index) => {
@@ -65,6 +59,33 @@ const MapCardView = (props) => {
       <View key={index} style={{ marginTop: 3 }}>
         <ListItem name={item.name} source={item.source} {...props} />
       </View>
+    );
+  };
+
+  renderButton = (item) => {
+    return (
+      <Androw
+        style={{
+          shadowRadius: 3.5,
+          shadowOpacity: 0.35,
+          shadowColor: "#757575",
+          shadowOffset: {
+            width: 0,
+            height: 3,
+          },
+        }}
+      >
+        <TouchableOpacity
+          style={buttonStyles || _styles.buttonStyles}
+          onPress={item.onPress}
+        >
+          <Text style={buttonsTextStyles || _styles.buttonsTextStyles}>
+            {item.text}
+          </Text>
+
+          <Image source={item.source} style={_styles.iconStyle} />
+        </TouchableOpacity>
+      </Androw>
     );
   };
 
@@ -94,48 +115,7 @@ const MapCardView = (props) => {
           </View>
         </View>
         <View style={buttonContainerStyles || _styles.buttonContainerStyles}>
-          <Androw
-            style={{
-              shadowRadius: 3.5,
-              shadowOpacity: 0.35,
-              shadowColor: "#757575",
-              shadowOffset: {
-                width: 0,
-                height: 3,
-              },
-            }}
-          >
-            <TouchableOpacity
-              style={firstButtonStyles || _styles.firstButtonStyles}
-              onPress={firstButtonOnPress}
-            >
-              <Text style={buttonsTextStyles || _styles.buttonsTextStyles}>
-                {firstButtonText}
-              </Text>
-              <Image source={firstImageSource} style={_styles.iconStyle} />
-            </TouchableOpacity>
-          </Androw>
-          <Androw
-            style={{
-              shadowRadius: 3.5,
-              shadowOpacity: 0.35,
-              shadowColor: "#757575",
-              shadowOffset: {
-                width: 0,
-                height: 3,
-              },
-            }}
-          >
-            <TouchableOpacity
-              style={secondButtonStyles || _styles.secondButtonStyles}
-              onPress={secondButtonOnPress}
-            >
-              <Text style={buttonsTextStyles || _styles.buttonsTextStyles}>
-                {secondButtonText}
-              </Text>
-              <Image source={secondImageSource} style={_styles.iconStyle} />
-            </TouchableOpacity>
-          </Androw>
+          {buttonData.map((item) => this.renderButton(item))}
         </View>
       </View>
     </Androw>
@@ -165,8 +145,6 @@ MapCardView.defaultProps = {
   backgroundColor: "#fff",
   width: ScreenWidth * 0.9,
   mapInitialRegion: INITIAL_REGION,
-  firstImageSource: require("../local-assets/map.png"),
-  secondImageSource: require("../local-assets/route.png"),
 };
 
 export default MapCardView;

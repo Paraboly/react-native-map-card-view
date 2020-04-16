@@ -15,6 +15,23 @@ const dummyData = [
   },
 ];
 
+const buttonData = [
+  {
+    text: "Haritaya Git",
+    source: require("example/assets/Map.png"),
+    onPress: () => {
+      console.log("1");
+    },
+  },
+  {
+    text: "Yol Tarifi",
+    source: require("example/assets/Route.png"),
+    onPress: () => {
+      console.log("2");
+    },
+  },
+];
+
 const App = () => {
   return (
     <>
@@ -25,10 +42,7 @@ const App = () => {
             data={dummyData}
             title="Hello"
             colors={["red", "black", "gray"]}
-            firstButtonText="Haritaya Git"
-            secondButtonText="Yol Tarifi"
-            firstButtonOnPress={() => console.log("first")}
-            secondButtonOnPress={() => console.log("second")}
+            buttonData={buttonData}
           />
         </View>
       </SafeAreaView>
