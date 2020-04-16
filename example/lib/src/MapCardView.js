@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 import {
   Text,
   View,
+  Image,
   FlatList,
   Dimensions,
   TouchableOpacity,
-  Image,
 } from "react-native";
 import Androw from "react-native-androw";
 import ListItem from "./components/ListItem/ListItem";
@@ -39,7 +39,6 @@ const MapCardView = (props) => {
     title,
     height,
     styles,
-    mapStyle,
     titleStyle,
     listHeight,
     borderColor,
@@ -47,7 +46,6 @@ const MapCardView = (props) => {
     shadowColor,
     borderLeftWidth,
     backgroundColor,
-    mapInitialRegion,
     firstButtonText,
     secondButtonText,
     buttonContainerStyles,
@@ -96,24 +94,48 @@ const MapCardView = (props) => {
           </View>
         </View>
         <View style={buttonContainerStyles || _styles.buttonContainerStyles}>
-          <TouchableOpacity
-            style={firstButtonStyles || _styles.firstButtonStyles}
-            onPress={firstButtonOnPress}
+          <Androw
+            style={{
+              shadowRadius: 3.5,
+              shadowOpacity: 0.35,
+              shadowColor: "#757575",
+              shadowOffset: {
+                width: 0,
+                height: 3,
+              },
+            }}
           >
-            <Text style={buttonsTextStyles || _styles.buttonsTextStyles}>
-              {firstButtonText}
-            </Text>
-            <Image source={firstImageSource} style={_styles.iconStyle} />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={secondButtonStyles || _styles.secondButtonStyles}
-            onPress={secondButtonOnPress}
+            <TouchableOpacity
+              style={firstButtonStyles || _styles.firstButtonStyles}
+              onPress={firstButtonOnPress}
+            >
+              <Text style={buttonsTextStyles || _styles.buttonsTextStyles}>
+                {firstButtonText}
+              </Text>
+              <Image source={firstImageSource} style={_styles.iconStyle} />
+            </TouchableOpacity>
+          </Androw>
+          <Androw
+            style={{
+              shadowRadius: 3.5,
+              shadowOpacity: 0.35,
+              shadowColor: "#757575",
+              shadowOffset: {
+                width: 0,
+                height: 3,
+              },
+            }}
           >
-            <Text style={buttonsTextStyles || _styles.buttonsTextStyles}>
-              {secondButtonText}
-            </Text>
-            <Image source={secondImageSource} style={_styles.iconStyle} />
-          </TouchableOpacity>
+            <TouchableOpacity
+              style={secondButtonStyles || _styles.secondButtonStyles}
+              onPress={secondButtonOnPress}
+            >
+              <Text style={buttonsTextStyles || _styles.buttonsTextStyles}>
+                {secondButtonText}
+              </Text>
+              <Image source={secondImageSource} style={_styles.iconStyle} />
+            </TouchableOpacity>
+          </Androw>
         </View>
       </View>
     </Androw>

@@ -26,7 +26,7 @@ const App = () => {
             title="Hello"
             colors={["red", "black", "gray"]}
             firstButtonText="Haritaya Git"
-            secondButtonText="Yol Tarifi Al"
+            secondButtonText="Yol Tarifi"
             firstButtonOnPress={() => console.log("first")}
             secondButtonOnPress={() => console.log("second")}
           />
