@@ -102,6 +102,5 @@ export default {
   iconStyle: {
     width: 20,
     height: 20,
-    borderWidth: 1,
   },
 };
