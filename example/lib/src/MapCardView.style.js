@@ -1,22 +1,22 @@
 import { isIPhoneXFamily } from "@freakycoder/react-native-helpers";
 
-export const _shadowStyle = shadowColor => ({
+export const _shadowStyle = (shadowColor) => ({
   shadowColor,
   shadowOpacity: 0.7,
   shadowRadius: 10,
   shadowOffset: {
     width: 0,
-    height: 0
+    height: 0,
   },
   alignItems: "center",
-  justifyContent: "center"
+  justifyContent: "center",
 });
 
-export const _listStyle = height => ({
+export const _listStyle = (height) => ({
   height,
   borderWidth: 0,
   borderColor: "transparent",
-  width: isIPhoneXFamily() ? "60%" : "55%"
+  width: isIPhoneXFamily() ? "60%" : "55%",
 });
 
 export const _container = (
@@ -32,7 +32,7 @@ export const _container = (
   borderLeftWidth,
   backgroundColor,
   borderRadius: 24,
-  flexDirection: "row"
+  flexDirection: "row",
 });
 
 export default {
@@ -45,29 +45,63 @@ export default {
     shadowRadius: 10,
     shadowOffset: {
       width: 0,
-      height: 0
-    }
+      height: 0,
+    },
   },
   mapStyle: {
     width: 125,
     height: 125,
-    borderRadius: 24
+    borderRadius: 24,
   },
   listContainer: {
     marginTop: 12,
     marginBottom: 12,
     marginLeft: 20,
-    marginRight: 12
+    marginRight: 12,
   },
   listContainerGlue: {
     marginTop: 3,
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "flex-start"
+    justifyContent: "flex-start",
   },
   titleStyle: {
     fontSize: 18,
     marginLeft: 5,
-    fontWeight: "600"
-  }
+    fontWeight: "600",
+  },
+  buttonContainerStyles: {
+    height: "100%",
+    width: 120,
+    marginLeft: -5,
+    flexDirection: "column",
+    justifyContent: "center",
+  },
+  firstButtonStyles: {
+    borderRadius: 16,
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#f4cb61",
+    height: 30,
+    marginBottom: 10,
+  },
+  secondButtonStyles: {
+    borderRadius: 16,
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#f4cb61",
+    height: 30,
+  },
+  buttonsTextStyles: {
+    marginLeft: 8,
+    color: "#fff",
+    fontSize: 13,
+    fontWeight: "bold",
+    marginRight: 10,
+  },
+  iconStyle: {
+    width: 20,
+    height: 20,
+    borderWidth: 1,
+  },
 };

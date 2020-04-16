@@ -1,9 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Text, View, FlatList, Dimensions } from "react-native";
+import {
+  Text,
+  View,
+  FlatList,
+  Dimensions,
+  TouchableOpacity,
+  Image,
+} from "react-native";
 import Androw from "react-native-androw";
-//import MapView, { Marker } from "react-native-maps";
 import ListItem from "./components/ListItem/ListItem";
+
 import _styles, {
   _shadowStyle,
   _container,
@@ -32,10 +39,7 @@ const MapCardView = (props) => {
     title,
     height,
     styles,
-    //markers,
     mapStyle,
-    //markerLat,
-    //markerLng,
     titleStyle,
     listHeight,
     borderColor,
@@ -44,6 +48,17 @@ const MapCardView = (props) => {
     borderLeftWidth,
     backgroundColor,
     mapInitialRegion,
+    firstButtonText,
+    secondButtonText,
+    buttonContainerStyles,
+    secondButtonStyles,
+    firstButtonStyles,
+    buttonsTextStyles,
+    firstButtonOnPress,
+    secondButtonOnPress,
+    ImageComponent,
+    firstImageSource,
+    secondImageSource,
   } = props;
 
   renderListItem = (list, index) => {
@@ -69,19 +84,6 @@ const MapCardView = (props) => {
           )
         }
       >
-        <Androw style={_styles.mapContainer}>
-          {/* <MapView
-            liteMode
-            initialRegion={mapInitialRegion}
-            style={mapStyle || _styles.mapStyle}
-          >
-            {markers || (
-              <Marker
-                coordinate={{ latitude: markerLat, longitude: markerLng }}
-              />
-            )}
-          </MapView> */}
-        </Androw>
         <View style={_styles.listContainer}>
           <Text style={titleStyle || _styles.titleStyle}>{title}</Text>
           <View style={_styles.listContainerGlue}>
@@ -92,6 +94,26 @@ const MapCardView = (props) => {
               data={data && data.length > 0 && data}
             />
           </View>
+        </View>
+        <View style={buttonContainerStyles || _styles.buttonContainerStyles}>
+          <TouchableOpacity
+            style={firstButtonStyles || _styles.firstButtonStyles}
+            onPress={firstButtonOnPress}
+          >
+            <Text style={buttonsTextStyles || _styles.buttonsTextStyles}>
+              {firstButtonText}
+            </Text>
+            <Image source={firstImageSource} style={_styles.iconStyle} />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={secondButtonStyles || _styles.secondButtonStyles}
+            onPress={secondButtonOnPress}
+          >
+            <Text style={buttonsTextStyles || _styles.buttonsTextStyles}>
+              {secondButtonText}
+            </Text>
+            <Image source={secondImageSource} style={_styles.iconStyle} />
+          </TouchableOpacity>
         </View>
       </View>
     </Androw>
@@ -121,6 +143,8 @@ MapCardView.defaultProps = {
   backgroundColor: "#fff",
   width: ScreenWidth * 0.9,
   mapInitialRegion: INITIAL_REGION,
+  firstImageSource: require("../local-assets/map.png"),
+  secondImageSource: require("../local-assets/route.png"),
 };
 
 export default MapCardView;

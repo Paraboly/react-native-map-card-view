@@ -1,6 +1,5 @@
 import React from "react";
 import { View, StatusBar, SafeAreaView } from "react-native";
-//import MapCardView from "@paraboly/react-native-map-card-view";
 import MapCardView from "./lib/src/MapCardView";
 
 const dummyData = [
@@ -26,6 +25,10 @@ const App = () => {
             data={dummyData}
             title="Hello"
             colors={["red", "black", "gray"]}
+            firstButtonText="Haritaya Git"
+            secondButtonText="Yol Tarifi Al"
+            firstButtonOnPress={() => console.log("first")}
+            secondButtonOnPress={() => console.log("second")}
           />
         </View>
       </SafeAreaView>
